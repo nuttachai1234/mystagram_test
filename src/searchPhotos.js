@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Unsplash, { toJson } from "unsplash-js";
 
 const unsplash = new Unsplash({
-  accessKey: "",
+  accessKey: "6rKVEZd1gWGlA8FLgveFQZFC7sOucq0rpGK9hqf1W-4",
 });
 export default function SearchPhotos() {
 
@@ -57,6 +57,7 @@ export default function SearchPhotos() {
           </div>
         ))}{" "}
       </div>
+      
     </>
   );
 }
