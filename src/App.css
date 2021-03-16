@@ -113,6 +113,7 @@ h1 {
   
   
   .photo__header {
+    font-family: cursive;
     padding: 15px 20px;
     display: flex;
     align-items: center;
@@ -206,4 +207,11 @@ h1 {
   .heart-red {
     color: red;
   }
-  
+  .photo {
+    width: 60%;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.0975);
+    max-width: 400px;
+    margin-bottom: 40px;
+  }

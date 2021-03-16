@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import Unsplash, { toJson } from "unsplash-js";
-import { faHeart,faComment,faShare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+/*import { faHeart,faComment,faShare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";*/
 
-
+//เรียกใช้ unsplash
 const unsplash = new Unsplash({
     accessKey: "6rKVEZd1gWGlA8FLgveFQZFC7sOucq0rpGK9hqf1W-4",
 });
+
 export default function SearchPhotos() {
 
+    //รอรับค่าจากช่อง search
     const [query, setQuery] = useState("");
     const [pics, setPics] = useState([]);
 
-
+    //searchphoto 
     const searchPhotos = async (e) => {
-        e.preventDefault();
-
+        e.preventDefault(); //ใช้หยุดการเกิดเหตุการณ์ใดๆขึ้น ที่เป็นเหตุการณ์ของ browser 
+                            //คือเหตุการณ์ที่ไม่ได้เกิดขึ้นจากการที่เรากำหนดให้มัน
+                            //เช่น จะไม่ link ไปยังหน้าถัดไปของการ click tag a
         unsplash.search
             .photos(query)
             .then(toJson)
@@ -47,44 +50,31 @@ export default function SearchPhotos() {
         </button>
             </form>
             <from >
-                
-                    {pics.map((pic) => (
-                        <div  key={pic.id}>
-                            <div className="photo__header"  >
-                                <div className="photo__header-color" >
-                                    <a href={"/profile/" + pic.user.username} >
-                                        <img
-                                            className="photo__avatar"
-                                            alt={pic.alt_description}
-                                            src={pic.user.profile_image.medium}
-                                        ></img>
-                                    </a>
-                                </div>
-                                <div className="photo__header-column">
-                                    <span className="photo__username"><a href={"/profile/" + pic.user.username} >{pic.user.username}</a></span>
-                                </div>
-                            </div>
-                            <div className="photo__file-container">
-                                <img className="photo__file"  alt={pic.alt_description} src={pic.urls.raw}></img>
-                            </div>
-                            <div className="photo__info">
-                                <div className="photo__icons">
-                                    <span className="photo__icon"><FontAwesomeIcon icon={faHeart}/></span> 
-                                    <span className="photo__icon"><FontAwesomeIcon icon={faComment}/></span> <span className="photo__icon"><FontAwesomeIcon icon={faShare}/></span>
-                                </div>
-                                <span className="photo__likes">{pic.likes} likes</span>
-                                <div className="photo__comments">
-                                    <div className="photo__comment">
-                                        <span className="photo__comment-author">
-                                            <a href={"/profile/" + pic.user.username}>{pic.user.username}</a>
-                                        </span>{pic.alt_description}
+                <div class="row">
+                    <div class="col">
+                        {pics.map((pic) => (
+                            <div key={pic.id}>
+                                <section class="photo">
+                                    <header class="photo__header">
+                                        <div class="photo__header-color">
+                                            <a href={"/profile/" + pic.user.username} >
+                                                <img class="photo__avatar" src={pic.user.profile_image.medium} />
+                                            </a>
+                                        </div>
+                                        <div class="photo__header-column">
+                                            <span class="photo__username"><h2><a href={"/profile/" + pic.user.username} >{pic.user.username}</a></h2></span>
+                                        </div>
+                                    </header>
+                                    <div class="photo__file-container">
+                                        <img class="photo__file" src={pic.urls.raw} />
                                     </div>
-                                </div>
+                                </section>
                             </div>
-                        </div>
-                    ))}{" "}
-                
+                        ))}{" "}
+
+                    </div></div>
             </from>
+
 
         </>
     );
