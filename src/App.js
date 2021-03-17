@@ -10,7 +10,7 @@ function App() {
     <div className="App">
      
  <div className="container">
-        <h1 className="title" >My Stargram </h1>
+        <h1 className="title" >Mystagram </h1>
         <Router>
           <Switch>
             <Route exact path="/" component={SearchPhotos}/>
