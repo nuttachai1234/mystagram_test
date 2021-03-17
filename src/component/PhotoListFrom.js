@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";*/
 const UserProfileFrom = ({ username }) => {
 
     //key จาก unspash
-    const accessKey = "6rKVEZd1gWGlA8FLgveFQZFC7sOucq0rpGK9hqf1W-4"  
+    const accessKey = "oU8z-apsIFDAVlEJDT_mLBTcczi_w5g5ZppeVkHZ_jI"  
     //เรียก api ด้วย username 
     const apiuser = "https://api.unsplash.com/users/" + username + "/photos?page=1&query=&per_page=15&client_id=" + accessKey;
 

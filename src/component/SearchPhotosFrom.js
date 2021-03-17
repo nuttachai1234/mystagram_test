@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";*/
 
 //เรียกใช้ unsplash
 const unsplash = new Unsplash({
-    accessKey: "6rKVEZd1gWGlA8FLgveFQZFC7sOucq0rpGK9hqf1W-4",
+    accessKey: "oU8z-apsIFDAVlEJDT_mLBTcczi_w5g5ZppeVkHZ_jI",
 });
 
 export default function SearchPhotos() {
